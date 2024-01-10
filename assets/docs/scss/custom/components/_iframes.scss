@@ -1,0 +1,12 @@
+.code-server-frame {
+    iframe {
+        position: sticky;
+        position: -webkit-sticky;
+        top: 82px; 
+        
+        @media (max-width: 767px) {
+            position: static;
+            top: 0;
+        }
+    }
+}
