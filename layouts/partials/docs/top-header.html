@@ -43,8 +43,13 @@
                     </button>
                 {{ end }}
             {{ end -}}
-            
+
+
             <div class="mx-4">
+                {{- partial "docs/start-button.html" . -}}
+            </div>
+
+            <div class="mx-1">
                 {{- partial "docs/toggle-buttons.html" . -}}
             </div>
         </div>

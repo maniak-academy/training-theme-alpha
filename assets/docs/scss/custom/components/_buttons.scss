@@ -214,3 +214,10 @@ body .toggle-light {
 button:not(:disabled) {
     outline: none;
 }
+
+.toggle-buttons {
+    display: none !important;
+    &.active {
+        display: flex !important;
+    }
+}

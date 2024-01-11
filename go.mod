@@ -1,4 +1,4 @@
-module github.com/maniak-academy/training-theme-alpha
+module github.com/maniak-academy/workshop-theme
 
 
 go 1.19

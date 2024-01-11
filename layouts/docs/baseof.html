@@ -26,7 +26,7 @@
                                 <div class="layout-spacing d-md-flex flex-md-row column column-gap-2">
 
                                     <!-- output of all pages -->
-                                    <div class="tab-content-wrapper column col-md-5 col-12 flex-xl-nowrap">
+                                    <div class="tab-content-wrapper column col-12 flex-xl-nowrap">
                                         {{ range (where .Site.Pages "Section" "docs") }}
                                             {{ range $index, $page := .Pages }}
 
@@ -298,6 +298,24 @@
 
             const vsCodeButton = document.getElementById("show-first");
             const terminalButton = document.getElementById("show-second");
+            const toggleButtons = document.querySelector('.toggle-buttons');
+            const startButton = document.querySelector('.start-button');
+            const iframes = document.querySelector('.code-server-frame');
+            const tabContentWrapper = document.querySelector('.tab-content-wrapper');
+
+           startButton.addEventListener('click', () => {
+                vsCodeButton.click();
+                toggleButtons.classList.toggle('active');
+                iframes.classList.toggle('active');
+
+                if (!iframes.classList.contains('active')) {
+                    tabContentWrapper.classList.remove('col-md-5')
+                    startButton.textContent = 'Start';
+                } else {
+                    tabContentWrapper.classList.add('col-md-5')
+                    startButton.textContent = 'Hide';
+                }
+           })
 
             vsCodeButton.addEventListener("click", function () {
                 showIframe(1);
@@ -307,7 +325,7 @@
                 showIframe(2);
             });
 
-            window.addEventListener("load", function () {
+            window.addEventListener("DOMContentLoaded", function () {
                 var params = new URLSearchParams(window.location.search);
                 var pageParam = params.get("page");
 
@@ -335,10 +353,12 @@
                   iframe2.style.display = "block";
                   vsCodeButton.classList.remove('btn-active')
                   terminalButton.classList.add('btn-active')
-                setQueryParam("page", "pageA");
+                    setQueryParam("page", "pageA");
                 }
             }
             });
+
+
          </script>
     </body>
 </html>

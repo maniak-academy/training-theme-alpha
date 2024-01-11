@@ -1,12 +1,17 @@
 .code-server-frame {
+display: none;
+  &.active {
+    display: block;
+
     iframe {
-        position: sticky;
-        position: -webkit-sticky;
-        top: 82px; 
-        
-        @media (max-width: 767px) {
-            position: static;
-            top: 0;
-        }
+      position: sticky;
+      position: -webkit-sticky;
+      top: 82px;
+
+      @media (max-width: 767px) {
+        position: static;
+        top: 0;
+      }
     }
+  }
 }
